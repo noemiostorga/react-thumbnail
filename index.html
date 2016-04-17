@@ -6,19 +6,49 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 </head>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5 target"></div>
+	</div>
+</div>
+
+
+
+
+
 <script type="text/jsx">
 	
 var Badge = React.createClass({
 	render:function(){
 		return <button className="btn btn-primary" type="button">
-  				Messages <span className="badge">4</span>
+  				{this.props.messages} <span className="badge">{this.props.number}</span>
 				</button>
+	}
+});
+
+var Thumbnail = React.createClass({
+	render:function(){
+		return  <div className="thumbnail">
+			      <img src={this.props.imageUrl} alt="..." />
+			      <div className="caption">
+			        <h3>Thumbnail label</h3>
+			        <p>{this.props.description}</p>
+			        <Badge messages={this.props.messages} number={this.props.number} />
+			      </div>
+			    </div>
 	}
 })
 
+var options = {
+	messages: "inbox",
+	number: 32,
+	imageUrl: "https://tleunen.github.io/react-mdl/react.svg",
+	description: "react is a library that helps you build dynamic websites faster"
+}
 
 
-var element = React.createElement(Badge);
-ReactDOM.render(element, document.body);
+var element = React.createElement(Thumbnail, options);
+ReactDOM.render(element, document.querySelector('.target'));
 
 </script>

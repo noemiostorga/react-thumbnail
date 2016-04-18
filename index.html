@@ -19,54 +19,11 @@
 
 <script type="text/jsx">
 	
-var Badge = React.createClass({
-	render:function(){
-		return <button className="btn btn-primary" type="button">
-  				{this.props.messages} <span className="badge">{this.props.number}</span>
-				</button>
-	}
-});
-
-var Thumbnail = React.createClass({
-	render:function(){
-		return  <div className="thumbnail">
-			      <img src={this.props.imageUrl} alt="..." />
-			      <div className="caption">
-			        <h3>Thumbnail label</h3>
-			        <p>{this.props.description}</p>
-			        <Badge messages={this.props.messages} number={this.props.number} />
-			      </div>
-			    </div>
-	}
-})
-
-var ThumbnailList = React.createClass({
-	render: function(){
-		var list = this.props.thumbnailData.map(function(props){
-			return <Thumbnail {...props} />
-		})
-		return <div> {list}</div>
-	}
-})
 
 
-var options = {
 
-		thumbnailData: [{
-	messages: "inbox",
-	number: 32,
-	imageUrl: "https://tleunen.github.io/react-mdl/react.svg",
-	description: "react is a library that helps you build dynamic websites faster"
-},{
-	messages: "inbox",
-	number: 32,
-	imageUrl: "https://tleunen.github.io/react-mdl/react.svg",
-	description: "react is a library that helps you build dynamic websites faster"
-}
-]
-}
 
-var element = React.createElement(ThumbnailList, options);
-ReactDOM.render(element, document.querySelector('.target'));
+
+
 
 </script>
